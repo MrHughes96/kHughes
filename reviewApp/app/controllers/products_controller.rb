@@ -18,3 +18,4 @@ class ProductsController < ApplicationController
 		params.require(:product).permit(:productName, :brand, :avgCost, :category, :releaseDate, :description, :productimg)
 	end
 end
+ 	
