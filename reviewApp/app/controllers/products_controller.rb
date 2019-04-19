@@ -6,8 +6,9 @@ class ProductsController < ApplicationController
 	def new
 	end
 	def show
-		#@review=Review.all
+		@review=Review.all
 		@product=Product.find(params[:id])
+
 	end
 	def create
 		#render plain: params[:product].inspect

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :watch_reviews
+  resources :phone_reviews
+  resources :tv_reviews
   get 'sessions/index'
   #get 'sessions/new'
   resources :sessions
@@ -12,6 +15,6 @@ Rails.application.routes.draw do
   get 'static_pages/products'
   resources :products
   resources :profiles
-  resources :reviews
+  #resources :reviews
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

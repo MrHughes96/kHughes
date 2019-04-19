@@ -1,6 +1,6 @@
 <div class="container">
-<h1> Add New Review </h1>
-<%= form_for :review, url: reviews_path do |f| %>
+<h1> Edit Review </h1>
+<%= form_for @review do |f| %>
 <div class="form-group">
 	<%= f.label :author %>
 	<%= f.text_field :author %>

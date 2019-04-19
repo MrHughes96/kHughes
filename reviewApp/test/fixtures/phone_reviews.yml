@@ -3,11 +3,11 @@
 one:
   author: MyString
   rating: 1.5
-  reviewtext: MyText
-  date: 2019-04-18
+  content: MyText
+  date: 2019-04-19
 
 two:
   author: MyString
   rating: 1.5
-  reviewtext: MyText
-  date: 2019-04-18
+  content: MyText
+  date: 2019-04-19

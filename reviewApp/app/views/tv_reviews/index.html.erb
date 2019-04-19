@@ -1,0 +1,29 @@
+<div class="container">
+	<h2>TV Reviews </h2>
+	
+	<table border="1" class="table">
+		<tr>
+			<th>Author</th>
+			
+			<th>Rating</th>
+			
+			<th>Content</th>
+			
+			<th>Date</th>
+			
+			
+			
+			
+		</tr>
+		<% @tvreview.each do |tvreview| %>
+		<tr>
+			<td><%=tvreview.author %></td>
+			<td><%=tvreview.rating %> </td>
+			<td><%=tvreview.content %> </td>
+			<td><%=tvreview.date %></td>
+			 
+		</tr>
+		<% end %>
+	</table>
+	<a><%= link_to 'Add New Review', new_tv_review_path %> </a>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+	<h2>Watch Reviews </h2>
+	
+	<table border="1" class="table">
+		<tr>
+			<th>Author</th>
+			
+			<th>Rating</th>
+			
+			<th>Content</th>
+			
+			<th>Date</th>
+		</tr>
+		<% @watchreview.each do |watchreview| %>
+		<tr>
+			<td><%=watchreview.author %></td>
+			<td><%=watchreview.rating %> </td>
+			<td><%=watchreview.content %> </td>
+			<td><%=watchreview.date %></td>
+			 
+		</tr>
+		<% end %>
+	</table>
+	<a><%= link_to 'Add New Review', new_watch_review_path %> </a>
+</div>

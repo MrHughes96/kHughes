@@ -1,0 +1,23 @@
+<div class="container">
+	<h2> Reviews Available </h2>
+	<table border="1" class="table">
+		<tr>
+			<th>Review Author</th>
+			<th>Review Rating</th>
+			<th>Review Content</th>
+			<th>Review Date</th>
+		</tr>
+		<% @reviews.each do |review| %>
+		<tr>
+			<td> <%=review.author %> </td>
+			<td> <%=review.rating %> </td>
+			<td><%=review.content%> </td>
+			<td><%=review.date%> </td>
+			<td> <%= link_to 'Show', review_path(review) %> </td>
+			<td><%= link_to 'Edit',edit_review_path(review) %> </td>
+			<td><%= link_to 'Delete',review_path(review), method: :Delete, data: {confirm: "Are you sure you want to delete details?"} %> </td>
+		</tr>
+		<% end %>
+	</table>
+</div>
+	

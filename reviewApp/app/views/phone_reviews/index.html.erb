@@ -1,0 +1,25 @@
+<div class="container">
+	<h2>Phone Reviews </h2>
+	
+	<table border="1" class="table">
+		<tr>
+			<th>Author</th>
+			
+			<th>Rating</th>
+			
+			<th>Content</th>
+			
+			<th>Date</th>
+		</tr>
+		<% @phonereview.each do |phonereview| %>
+		<tr>
+			<td><%=phonereview.author %></td>
+			<td><%=phonereview.rating %> </td>
+			<td><%=phonereview.content %> </td>
+			<td><%=phonereview.date %></td>
+			 
+		</tr>
+		<% end %>
+	</table>
+	<a><%= link_to 'Add New Review', new_phone_review_path %> </a>
+</div>
