@@ -1,0 +1,33 @@
+<div class="container">
+<h1> Add New Profile</h1>
+<%= form_for :profile, url: profiles_path do |f| %>
+<div class="form-group">
+	<%= f.label :pname %>
+	<%= f.text_field :pname , class: 'form-control' %>
+</div>
+<div class="form-group">
+	<%= f.label :dob %>
+	<%= f.date_field :dob , class: 'form-control' %>
+</div>
+<div class="form-group">
+	<%= f.label :address %>
+	<%= f.text_field :address , class: 'form-control'%>
+</div>
+<div class="form-group">
+	<%= f.label :city %>
+	<%= f.text_field :city , class: 'form-control'%>
+</div>
+<div class="form-group">
+	<%= f.label :country %>
+	<%= f.text_field :country , class: 'form-control'%>
+</div>
+<div class="form-group">
+	<%= f.label :userimg %>
+	<%= f.file_field :userimg %>
+</div>
+<div class="form-group">
+	<%= f.submit "Submit",class:'btn btn-primary' %>
+	<%=link_to "Cancel" , profiles_path, class:'btn btn-default' %>
+</div>
+<% end %>
+</div>

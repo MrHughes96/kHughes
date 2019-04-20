@@ -29,6 +29,8 @@
         <a class="p-2 text-dark" href="#"> <%=link_to'Smart TV', tv_reviews_path %> </a>
         <a class="p-2 text-dark" href="#"> <%=link_to'Smart Watch', watch_reviews_path %> </a>
         <a class="p-2 text-dark" href="#"> <%=link_to'Smart Phone', phone_reviews_path %> </a>
+        <a class="p-2 text-dark" href="#"> <%=link_to'Add Profile', new_profile_path %> </a>
+        <a class="p-2 text-dark" href="#"> <%=link_to'View Profiles', profiles_path %> </a>
        <% if current_user %>
         <a class="p-2 text-dark" href="#"> <%=link_to'Log Out',session_path('active'),method: :delete %> </a>
         <a class="p-2 text-dark" href="#"><%= current_user.userid %> </a>
@@ -36,6 +38,8 @@
         <a class="p-2 text-dark" href="#">
           <%= link_to 'Log in', new_session_path, class: "active_nav_link" %>
         </a>
+        
+
         <% end %>
       </nav>
   </div>

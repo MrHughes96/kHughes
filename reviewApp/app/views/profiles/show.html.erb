@@ -1,0 +1,9 @@
+<div class="container">
+	<h3> Profile Details</h3>
+	<p>Name <%=@profile.pname %></p>
+	<p>Date of Birth <%=@profile.dob %></p>
+	<p>Address <%=@profile.address %></p>
+	<p>City <%=@profile.city %></p>
+	<p>Country <%=@profile.country %></p>
+	<p>User Image<%=image_tag(@profile.userimg.url,size: '200x200') if @profile.userimg.exists? %></p>
+</div>

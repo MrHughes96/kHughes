@@ -8,7 +8,7 @@ class PhoneReviewsController < ApplicationController
 		@phonereview=PhoneReview.find(params[:id])
 	end
 	def create
-		#render plain: params[:product].inspect
+		#render plain: params[:phonereview].inspect
 		@phonereview=PhoneReview.new(phonereview_params)
 		if @phonereview.save
 			redirect_to phone_reviews_path
@@ -20,9 +20,9 @@ class PhoneReviewsController < ApplicationController
 		@phonereview=PhoneReview.find(params[:id])
 	end
 	def update
-		@phonereview=PhoneReview.find(params[:id])
+		@phonereview =PhoneReview.find(params[:id])
 		if @phonereview.update(phonereview_params)
-			redirect_to @phonereview
+			redirect_to phone_reviews_path(@phonereview)
 		else
 			render 'edit'
 		end

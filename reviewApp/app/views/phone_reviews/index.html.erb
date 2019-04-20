@@ -10,6 +10,8 @@
 			<th>Content</th>
 			
 			<th>Date</th>
+			<th>Edit  </th>
+			<th>Delete</th>
 		</tr>
 		<% @phonereview.each do |phonereview| %>
 		<tr>
@@ -17,7 +19,8 @@
 			<td><%=phonereview.rating %> </td>
 			<td><%=phonereview.content %> </td>
 			<td><%=phonereview.date %></td>
-			 
+			 <td><%= link_to 'Edit Review',edit_phone_review_path(phonereview) %> </td>
+			 <td><%= link_to 'Delete Review', phone_review_path(phonereview), method: :Delete,data: {confirm: "Are you sure you want to delete the details?"}%> </td>
 		</tr>
 		<% end %>
 	</table>

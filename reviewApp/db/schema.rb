@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_19_095152) do
+ActiveRecord::Schema.define(version: 2019_04_20_151524) do
 
   create_table "phone_reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "author"
@@ -29,6 +29,20 @@ ActiveRecord::Schema.define(version: 2019_04_19_095152) do
     t.date "releaseDate"
     t.text "description"
     t.string "productimg"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "pname"
+    t.date "dob"
+    t.string "address"
+    t.string "city"
+    t.string "country"
+    t.string "userimg_file_name"
+    t.string "userimg_content_type"
+    t.integer "userimg_file_size"
+    t.datetime "userimg_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
