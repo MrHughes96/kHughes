@@ -8,9 +8,54 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+<div class="container">
+ <nav class="navbar navbar-exband-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"> Sheffield E Reviews </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+      <a class="nav-link" href="<%=static_pages_home_path %>">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<%=static_pages_contact_path %>" > Contact Us</a>
+    </li>
+    <li class="nav-item">
+      <a class=" nav-link" href="<%=static_pages_about_path %>" > About Us</a>
+    </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle navbar-dark bg-dark" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="<%=tv_reviews_path %>">Smart TV</a>
+            <a class="dropdown-item" href="<%= watch_reviews_path%>">Smart Watch</a>
+            <a class="dropdown-item" href="<%= phone_reviews_path%>">Smart Phone</a>
+          </div>
+      </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle navbar-dark bg-dark" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profiles</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="<%=new_profile_path %>">Add Profile</a>
+            <a class="dropdown-item" href="<%= profiles_path %>">View Profiles</a>
+          </div>
+          <% if current_user %>
+        <a class="p-2 text-dark" href="#"> <%=link_to'Log Out',session_path('active'),method: :delete %> </a>
+        <a class="p-2 text-dark" href="#"><%= current_user.userid %> </a>
+        <% else %>
+        <a class="p-2 text-dark" href="#">
+          <%= link_to 'Log in', new_session_path, class: "active_nav_link" %>
+        </a>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>
+     
+<!--
+</nav>
   <div class="container">
 
    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
@@ -42,6 +87,7 @@
 
         <% end %>
       </nav>
+    -->
   </div>
 </div>
 <div class="container">
