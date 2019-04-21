@@ -18,6 +18,10 @@
 	<%= f.date_field :date , class: 'form-control'%>
 </div>
 <div class="form-group">
+	<%= f.label :products_id%>
+	<%= f.number_field :products_id , class: 'form-control'%>
+</div>
+<div class="form-group">
 	<%= f.submit "Submit",class:'btn btn-primary' %>
 	<%=link_to "Cancel" ,phone_reviews_path, class:'btn btn-default' %>
 </div>

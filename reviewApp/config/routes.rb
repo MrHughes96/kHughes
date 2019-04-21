@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :watch_reviews
   resources :phone_reviews
+  #resources :phonereviews
   resources :tv_reviews
   get 'sessions/index'
   #get 'sessions/new'

@@ -1,4 +1,5 @@
 class WatchReview < ApplicationRecord
+belongs_to :profile
 belongs_to :product
 validates :author, presence: true
 validates :rating, presence: true

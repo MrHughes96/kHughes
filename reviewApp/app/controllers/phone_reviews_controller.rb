@@ -37,6 +37,7 @@ class PhoneReviewsController < ApplicationController
 	end
 	private
 	def phonereview_params
-		params.require(:phonereview).permit(:author,:rating,:content,:date)
+		params.require(:phonereview).permit(:author,:rating,:content,:date,:products_id)
+		#require(:phonereview).
 	end
 end
