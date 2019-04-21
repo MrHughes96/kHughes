@@ -14,7 +14,8 @@
 			<th>Country</th>
 			
 			<th>Profile Image</th>
-			<th> View Profile </th>
+			<th>View Profile </th>
+			<th>Delete Profile </th>
 		</tr>
 		<% @profiles.each do |profile| %>
 		<tr>
@@ -25,6 +26,7 @@
 			<td><%=profile.country %> </td>
 			<td><%=image_tag profile.userimg.url, :size => "150x150" %> </td>
 			<td> <%= link_to 'View Profiles', profile_path(profile) %> </td>
+			<td><%= link_to 'Delete Review', profile_path(profile), method: :Delete,data: {confirm: "Are you sure you want to delete the  profile"}%> </td>
 		</tr>
 		<% end %>
 	</table>

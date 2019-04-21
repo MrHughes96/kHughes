@@ -9,86 +9,51 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-<div class="container">
- <nav class="navbar navbar-exband-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#"> Sheffield E Reviews </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<%=static_pages_home_path %>">Sheffield E-Reviews</a>
+    </div>
 
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-      <a class="nav-link" href="<%=static_pages_home_path %>">Home <span class="sr-only">(current)</span></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="<%=static_pages_contact_path %>" > Contact Us</a>
-    </li>
-    <li class="nav-item">
-      <a class=" nav-link" href="<%=static_pages_about_path %>" > About Us</a>
-    </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle navbar-dark bg-dark" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="<%=tv_reviews_path %>">Smart TV</a>
-            <a class="dropdown-item" href="<%= watch_reviews_path%>">Smart Watch</a>
-            <a class="dropdown-item" href="<%= phone_reviews_path%>">Smart Phone</a>
-          </div>
-      </li>
-       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle navbar-dark bg-dark" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profiles</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="<%=new_profile_path %>">Add Profile</a>
-            <a class="dropdown-item" href="<%= profiles_path %>">View Profiles</a>
-          </div>
-          <% if current_user %>
-        <a class="p-2 text-dark" href="#"> <%=link_to'Log Out',session_path('active'),method: :delete %> </a>
-        <a class="p-2 text-dark" href="#"><%= current_user.userid %> </a>
-        <% else %>
-        <a class="p-2 text-dark" href="#">
-          <%= link_to 'Log in', new_session_path, class: "active_nav_link" %>
-        </a>
-        <% end %>
-      </li>
-    </ul>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="<%=static_pages_contact_path %>">Contact Us <span class="sr-only">(current)</span></a></li>
+        <li><a href="<%=static_pages_about_path %>"">About</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Products <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="<%=tv_reviews_path %>">Smart TV</a></li>
+            <li><a href="<%= watch_reviews_path%>">Smart Watch</a></li>
+            <li><a href="<%= phone_reviews_path%>">Smart Phone</a></li>
+            
+          </ul>
+
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Profiles<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="<%=new_profile_path %>">Add Profile</a></li>
+            <li><a href="<%= profiles_path %>">View Profiles</a></li> 
+          </ul>
+        </li>
+        <ul class="nav navbar-nav">
+        <li class="active"><% if current_user %><%=link_to'Log Out',session_path('active'),method: :delete %> </li>
+        <li class="active">
+        <a href="#"><%= current_user.userid %></a> </li>
+        <li><% else %><%= link_to 'Log in', new_session_path, class: "active_nav_link" %>
+        <% end %></li>
+
+        </li>
+      </ul>
+    </div>
   </div>
-</nav>
-     
-<!--
-</nav>
-  <div class="container">
-
-   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-
-      <h5 class="my-0 mr-md-auto font-weight-normal"> Sheffield E-Reviews </h5>
-
-      <nav class="my-2 my-md-0 mr-md-3">
-
-
-        <a class="p-2 text-dark" href="#"> <%=link_to"Home",static_pages_home_path %></a>
-        <a class="p-2 text-dark" href="#"> <%=link_to"About Us",static_pages_about_path %> </a>
-        <a class="p-2 text-dark" href="#"> <%=link_to"Contact Us", static_pages_contact_path %>  </a>
-        <a class="p-2 text-dark" href="#"> <%=link_to"Products",products_path %> </a>
-        <a class="p-2 text-dark" href="#"> <%=link_to'Add New Product',new_product_path %> </a>
-        <a class="p-2 text-dark" href="#"> <%=link_to'Create Account',new_user_path %> </a>
-        <a class="p-2 text-dark" href="#"> <%=link_to'Smart TV', tv_reviews_path %> </a>
-        <a class="p-2 text-dark" href="#"> <%=link_to'Smart Watch', watch_reviews_path %> </a>
-        <a class="p-2 text-dark" href="#"> <%=link_to'Smart Phone', phone_reviews_path %> </a>
-        <a class="p-2 text-dark" href="#"> <%=link_to'Add Profile', new_profile_path %> </a>
-        <a class="p-2 text-dark" href="#"> <%=link_to'View Profiles', profiles_path %> </a>
-       <% if current_user %>
-        <a class="p-2 text-dark" href="#"> <%=link_to'Log Out',session_path('active'),method: :delete %> </a>
-        <a class="p-2 text-dark" href="#"><%= current_user.userid %> </a>
-        <% else %>
-        <a class="p-2 text-dark" href="#">
-          <%= link_to 'Log in', new_session_path, class: "active_nav_link" %>
-        </a>
-        
-
-        <% end %>
-      </nav>
-    -->
-  </div>
+</nav>    
 </div>
 <div class="container">
  <%= yield %>

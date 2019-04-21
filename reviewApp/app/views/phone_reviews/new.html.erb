@@ -1,6 +1,6 @@
 <div class="container">
 <h1> Add New PhoneReview </h1>
-<%= form_for :phonereview, url: phone_reviews_path do |f| %>
+<%= form_for :phonereview do |f| %> <!--url: phone_reviews_path -->
 <div class="form-group">
 	<%= f.label :author %>
 	<%= f.text_field :author , class: 'form-control'%>

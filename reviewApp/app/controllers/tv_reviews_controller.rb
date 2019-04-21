@@ -8,13 +8,14 @@ class TvReviewsController < ApplicationController
 		@tvreview=TvReview.find(params[:id])
 	end
 	def create
-		#render plain: params[:product].inspect
+		render plain: params[:product].inspect
 		@tvreview=TvReview.new(tvreview_params)
 		if @tvreview.save
 			redirect_to tv_reviews_path
 		else
 			render 'new'
 		end
+		
 	end
 	def edit
 		@tvreview=TvReview.find(params[:id])

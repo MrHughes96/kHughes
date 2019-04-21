@@ -20,9 +20,10 @@ class PhoneReviewsController < ApplicationController
 		@phonereview=PhoneReview.find(params[:id])
 	end
 	def update
-		@phonereview =PhoneReview.find(params[:id])
+			@phonereview =PhoneReview.find(params[:id])
 		if @phonereview.update(phonereview_params)
-			redirect_to phone_reviews_path(@phonereview)
+			redirect_to @phonereview
+			#phone_reviews_path(
 		else
 			render 'edit'
 		end
