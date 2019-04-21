@@ -1,6 +1,8 @@
 class PhoneReviewsController < ApplicationController
+	before_action :authorize, :only => [ :create]
 	def index
 		@phonereview=PhoneReview.all
+		
 	end
 	def new
 	end
@@ -11,16 +13,16 @@ class PhoneReviewsController < ApplicationController
 		#render plain: params[:phonereview].inspect
 		@phonereview=PhoneReview.new(phonereview_params)
 		if @phonereview.save
-			redirect_to phone_reviews_path
+			redirect_to phone_reviews_path, notice: "Created Review Successfully"
 		else
-			render 'new'
+			redirect_to phone_reviews_path, alert: "You need to Log in to create a review!"
 		end
 	end
 	def edit
 		@phonereview=PhoneReview.find(params[:id])
 	end
 	def update
-			@phonereview =PhoneReview.find(params[:id])
+		@phonereview=PhoneReview.find(params[:id])
 		if @phonereview.update(phonereview_params)
 			redirect_to @phonereview
 			#phone_reviews_path(
@@ -38,5 +40,3 @@ class PhoneReviewsController < ApplicationController
 		params.require(:phonereview).permit(:author,:rating,:content,:date)
 	end
 end
-
-

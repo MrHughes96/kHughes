@@ -1,4 +1,5 @@
 class TvReviewsController < ApplicationController
+	before_action :authorize, :only => [ :create]
 	def index
 		@tvreview=TvReview.all
 	end
@@ -11,9 +12,9 @@ class TvReviewsController < ApplicationController
 		render plain: params[:product].inspect
 		@tvreview=TvReview.new(tvreview_params)
 		if @tvreview.save
-			redirect_to tv_reviews_path
+			redirect_to tv_reviews_path, notice: "Created Review Successfully"
 		else
-			render 'new'
+			redirect_to tv_reviews_path, alert: "You need to Log in to create a review!"
 		end
 		
 	end

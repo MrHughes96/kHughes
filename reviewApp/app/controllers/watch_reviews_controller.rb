@@ -1,4 +1,5 @@
 class WatchReviewsController < ApplicationController
+	before_action :authorize, :only => [ :create]
 	def index
 		@watchreview=WatchReview.all
 	end
@@ -11,9 +12,9 @@ class WatchReviewsController < ApplicationController
 		#render plain: params[:product].inspect
 		@watchreview=WatchReview.new(watchreview_params)
 		if @watchreview.save
-			redirect_to watch_reviews_path
+			redirect_to watch_reviews_path, notice: "Created Review Successfully"
 		else
-			render 'new'
+			redirect_to watch_reviews_path, alert: "You need to Log in to create a review!"
 		end
 	end
 	def edit

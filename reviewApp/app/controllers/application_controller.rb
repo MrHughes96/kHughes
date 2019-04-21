@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 	end
 	helper_method :current_user
 	def authorize
-		redirect_to new_session_path, alert: 'Please Log in or Create an account' if current_user.nil?
+		redirect_to new_session_path,alert: 'Please Log in or Create an account' if current_user.nil?
+		#flash[:alert]= 'Please Log in or Create an account'
 	end
 end
+
