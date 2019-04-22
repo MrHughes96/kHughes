@@ -9,11 +9,11 @@ class ProductsController < ApplicationController
 		#@review=Review.all
 		@product=Product.find(params[:id])
 		 case @product.id 
-			when 5
+			when 13
 				@review=TvReview.all
-			when 6
+			when 14
 				@review=PhoneReview.all
-			when 4
+			when 12
 				@review=WatchReview.all
 			end
 	end
@@ -22,11 +22,11 @@ class ProductsController < ApplicationController
 		#render plain: params[:product].inspect
 		@product=Product.new(product_params)
 		@product.save
-		redirect_to @product
+		redirect_to products_path
 	end
 	private
 	def product_params
-		params.require(:product).permit(:productName, :brand, :avgCost, :category, :releaseDate, :description, :productimg)
+		params.require(:product).permit(:productName, :brand, :avgCost, :category, :releaseDate, :description, :prodimg)
 	end
 end
  	

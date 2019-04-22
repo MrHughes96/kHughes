@@ -1,5 +1,5 @@
 class PhoneReview < ApplicationRecord
-belongs_to :product
+belongs_to :product, optional: true
 belongs_to :profile, optional: true
 validates :author, presence: true
 validates :rating, presence: true

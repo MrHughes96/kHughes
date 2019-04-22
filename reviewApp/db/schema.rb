@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_22_105311) do
+ActiveRecord::Schema.define(version: 2019_04_22_152614) do
 
   create_table "phone_reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "author"
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 2019_04_22_105311) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "products_id"
+    t.bigint "profile_id"
     t.index ["products_id"], name: "index_phone_reviews_on_products_id"
+    t.index ["profile_id"], name: "index_phone_reviews_on_profile_id"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -33,6 +35,10 @@ ActiveRecord::Schema.define(version: 2019_04_22_105311) do
     t.string "productimg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "prodimg_file_name"
+    t.string "prodimg_content_type"
+    t.integer "prodimg_file_size"
+    t.datetime "prodimg_updated_at"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -47,8 +53,8 @@ ActiveRecord::Schema.define(version: 2019_04_22_105311) do
     t.datetime "userimg_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id_id"
-    t.index ["user_id_id"], name: "index_profiles_on_user_id_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

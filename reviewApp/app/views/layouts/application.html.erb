@@ -28,27 +28,34 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Products <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="<%=product_path(5)%>">Smart TV</a></li>
-            <li><a href="<%= product_path(4)%>">Smart Watch</a></li>
-            <li><a href="<%= product_path(6)%>">Smart Phone</a></li>
+            <li><a href="<%=product_path(13)%>">Smart TV</a></li>
+            <li><a href="<%= product_path(12)%>">Smart Watch</a></li>
+            <li><a href="<%= product_path(14)%>">Smart Phone</a></li>
             
-          </ul>
+          </ul><% else %>
 
         </li>
+        <% if current_user %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Profiles<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Profile<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
+            
+            <% if current_profile %>
+            <li><a href="<%=profiles_path(current_profile) %>">View Profile</a></li> 
+            <% else %>
             <li><a href="<%=new_profile_path %>">Add Profile</a></li>
-            <li><a href="<%= profiles_path %>">View Profiles</a></li> 
+            <% end %>
           </ul>
         </li>
+        <% else %>
         <ul class="nav navbar-nav">
+          <% end %>
         <li class="active"><% if current_user %><%=link_to'Log Out',session_path('active'),method: :delete %> </li>
         <li class="active">
         <a href="#"><%= current_user.userid %></a> </li>
         <li><% else %><%= link_to 'Log in', new_session_path, class: "active_nav_link" %>
+          <li><a href="<%=new_user_path %>"> Sign Up </a></li>
         <% end %></li>
-
         </li>
       </ul>
     </div>

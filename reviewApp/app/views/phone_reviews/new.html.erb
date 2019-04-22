@@ -1,9 +1,11 @@
 <div class="container">
 <h1> Add New PhoneReview </h1>
 <%= form_for :phonereview, url: phone_reviews_path do |f| %> <!--url: phone_reviews_path -->
+<%= f.hidden_field :products_id, class: 'form-control', value:14 %>
+<%=f.hidden_field :profile_id, class: 'form-control', value: current_profile.id %>
 <div class="form-group">
 	<%= f.label :author %>
-	<%= f.text_field :author , class: 'form-control'%>
+	<%= f.text_field :author , class:'form-control', value: current_profile.pname, :readonly=> true %>
 </div>
 <div class="form-group">
 	<%= f.label :rating %>
@@ -16,10 +18,6 @@
 <div class="form-group">
 	<%= f.label :date %>
 	<%= f.date_field :date , class: 'form-control'%>
-</div>
-<div class="form-group">
-	<%= f.label :products_id%>
-	<%= f.number_field :products_id , class: 'form-control'%>
 </div>
 <div class="form-group">
 	<%= f.submit "Submit",class:'btn btn-primary' %>

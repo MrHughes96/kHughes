@@ -16,7 +16,7 @@
 		<td><%= @profiles.address %></td>
 		<td><%= @profiles.city %></td>
 		<td><%= @profiles.country %></td>
-		<td><<%= image_tag(@profiles.userimg.url,size: '200x200') %></td>
+		<td><%= image_tag(@profiles.userimg.url,size: '200x200') %></td>
 		<td><%= link_to 'Edit Profile', edit_profile_path(@profiles) %> </td>
 	</tr>
 </table>

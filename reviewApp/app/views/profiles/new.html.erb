@@ -26,6 +26,9 @@
 	<%= f.file_field :userimg %>
 </div>
 <div class="form-group">
+	<%= f.hidden_field :user_id, value: current_user.id , class: 'form-control' %>
+</div>
+<div class="form-group">
 	<%= f.submit "Submit",class:'btn btn-primary' %>
 	<%=link_to "Cancel" , profiles_path, class:'btn btn-default' %>
 </div>

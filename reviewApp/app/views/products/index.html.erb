@@ -1,5 +1,6 @@
 <div class="container">
 	<h2>Products Available </h2>
+	<p><%= link_to 'Add New Product', new_product_path %></p>
 	<table border="1" class="table">
 		<tr>
 			<th>Product Name</th>
@@ -26,9 +27,10 @@
 			<td><%=product.category%> </td>
 			<td><%=product.releaseDate %> </td>
 			<td><%=product.description %> </td>
-			<td><%=product.productimg %> </td>
+			<td><%=image_tag product.prodimg.url, :size => "150x150" if product.prodimg.exists? %></td>
 			<td> <%= link_to 'Product Page', product_path(product) %> </td>
 		</tr>
 		<% end %>
 	</table>
+
 </div>

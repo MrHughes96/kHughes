@@ -1,15 +1,28 @@
 <div class="container">
+
 	<h3>Product Details</h3>
-	<p>Product Name <%=@product.productName %> </p>
-	<p>Product Brand <%=@product.brand %></p>
-	<p>Average Cost <%=@product.avgCost %></p>
-	<p>Product Category <%=@product.category %></p>
-	<p>Release Date <%=@product.releaseDate %></p>
-	<p>Description <%=@product.description %></p>
-	<p>Product Image <%=@product.productimg %></p>
+	<table border="2" class="table">
+		<tr>
+			<th>Product Name</th>
+			<th>Brand </th>
+			<th>Avg Cost</th>
+			<th>Category</th>
+			<th>Release Date</th>
+			<th>Description</th>
+			<th>Image</th>
+		</tr>
+
+		<tr>
+	<td><%=@product.productName %></td>
+	<td><%=@product.brand %></td>
+	<td><%=@product.avgCost %></td>
+	<td><%=@product.category %></td>
+	<td><%=@product.releaseDate %></td>
+	<td><%=@product.description %></td>
+	<td><%= image_tag(@product.prodimg.url,size: '200x200') if @product.prodimg.exists? %></td>
+</tr>
+</table>
 </div>
-
-
 <div class="container">
 	<h2>Product Reviews </h2>
 	
@@ -21,11 +34,7 @@
 			
 			<th>Content</th>
 			
-			<th>Date</th>
-			
-			
-			
-			
+			<th>Date</th>	
 		</tr>
 		<% @review.each do |review| %>
 		<tr>
