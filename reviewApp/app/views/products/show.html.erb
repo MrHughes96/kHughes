@@ -22,8 +22,8 @@
 	<td><%= image_tag(@product.prodimg.url,size: '200x200') if @product.prodimg.exists? %></td>
 </tr>
 </table>
-</div>
-<div class="container">
+
+
 	<h2>Product Reviews </h2>
 	
 	<table border="1" class="table">
@@ -42,9 +42,18 @@
 			<td><%=review.rating %> </td>
 			<td><%=review.content %> </td>
 			<td><%=review.date %></td>
-			 
 		</tr>
 		<% end %>
 	</table>
-	<a><%= link_to 'Add New Review', new_tv_review_path %> </a>
+
+	<% if @link == 1 %>
+		
+		<%= render(:partial => "tv")%>
+	<% elsif @link == 2 %>
+		
+		<%= render(:partial => "phone")%>
+	<% else %>
+		
+		<%= render(:partial => "watch")%>
+	<% end %>
 </div>

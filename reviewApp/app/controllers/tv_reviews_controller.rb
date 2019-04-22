@@ -35,7 +35,7 @@ class TvReviewsController < ApplicationController
 	end
 	private
 	def tvreview_params
-		params.require(:tvreview).permit(:products_id,:author,:rating,:content,:date)
+		params.require(:tvreview).permit(:products_id,:profiles_id,:author,:rating,:content,:date)
 	end
 end
 

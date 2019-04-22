@@ -35,6 +35,6 @@ class WatchReviewsController < ApplicationController
 	end
 	private
 	def watchreview_params
-		params.require(:watchreview).permit(:author,:rating,:content,:date)
+		params.require(:watchreview).permit(:products_id,:profiles_id,:author,:rating,:content,:date)
 	end
 end

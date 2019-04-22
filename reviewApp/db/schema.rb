@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_22_152614) do
+ActiveRecord::Schema.define(version: 2019_04_22_181841) do
 
   create_table "phone_reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "author"
@@ -74,7 +74,9 @@ ActiveRecord::Schema.define(version: 2019_04_22_152614) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "products_id"
+    t.bigint "profile_id"
     t.index ["products_id"], name: "index_tv_reviews_on_products_id"
+    t.index ["profile_id"], name: "index_tv_reviews_on_profile_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

@@ -7,8 +7,8 @@ class ProfilesController < ApplicationController
 	end
 	def show
 		@profiles=Profile.find(params[:id])
-		logger.info "Profile: #{@profiles}"
-		logger.info "Profile is Nil? #{@profiles.nil?}"
+		#logger.info "Profile: #{@profiles}"
+		#logger.info "Profile is Nil? #{@profiles.nil?}"
 	end
 	def create
 		#render plain: params[:product].inspect

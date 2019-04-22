@@ -21,7 +21,8 @@
 			<td><%=tvreview.rating %> </td>
 			<td><%=tvreview.content %> </td>
 			<td><%=tvreview.date %></td>
-			 
+			 <td><%= link_to 'Edit Review',edit_tv_review_path(tvreview) %> </td>
+			 <td><%= link_to 'Delete Review', tv_review_path(tvreview), method: :Delete,data: {confirm: "Are you sure you want to delete the details?"}%> </td>
 		</tr>
 		<% end %>
 	</table>
