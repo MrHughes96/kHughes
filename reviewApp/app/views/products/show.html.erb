@@ -8,3 +8,34 @@
 	<p>Description <%=@product.description %></p>
 	<p>Product Image <%=@product.productimg %></p>
 </div>
+
+
+<div class="container">
+	<h2>Product Reviews </h2>
+	
+	<table border="1" class="table">
+		<tr>
+			<th>Author</th>
+			
+			<th>Rating</th>
+			
+			<th>Content</th>
+			
+			<th>Date</th>
+			
+			
+			
+			
+		</tr>
+		<% @review.each do |review| %>
+		<tr>
+			<td><%=review.author %></td>
+			<td><%=review.rating %> </td>
+			<td><%=review.content %> </td>
+			<td><%=review.date %></td>
+			 
+		</tr>
+		<% end %>
+	</table>
+	<a><%= link_to 'Add New Review', new_tv_review_path %> </a>
+</div>

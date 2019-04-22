@@ -9,14 +9,13 @@ class TvReviewsController < ApplicationController
 		@tvreview=TvReview.find(params[:id])
 	end
 	def create
-		render plain: params[:product].inspect
+		#render plain: params[:product].inspect
 		@tvreview=TvReview.new(tvreview_params)
 		if @tvreview.save
 			redirect_to tv_reviews_path, notice: "Created Review Successfully"
 		else
-			redirect_to tv_reviews_path, alert: "You need to Log in to create a review!"
+			redirect_to tv_reviews_path, alert: "Review Error!"
 		end
-		
 	end
 	def edit
 		@tvreview=TvReview.find(params[:id])
@@ -36,7 +35,7 @@ class TvReviewsController < ApplicationController
 	end
 	private
 	def tvreview_params
-		params.require(:tvreview).permit(:author,:rating,:content,:date)
+		params.require(:tvreview).permit(:products_id,:author,:rating,:content,:date)
 	end
 end
 

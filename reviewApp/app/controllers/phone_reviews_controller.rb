@@ -2,11 +2,11 @@ class PhoneReviewsController < ApplicationController
 	before_action :authorize, :only => [ :create]
 	def index
 		@phonereview=PhoneReview.all
-		
 	end
 	def new
 	end
 	def show
+		@product=Product.find(params[:id])
 		@phonereview=PhoneReview.find(params[:id])
 	end
 	def create

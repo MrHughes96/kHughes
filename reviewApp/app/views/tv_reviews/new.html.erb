@@ -1,6 +1,11 @@
 <div class="container">
 <h1> Add New TVReview </h1>
 <%= form_for :tvreview, url: tv_reviews_path do |f| %>
+
+
+
+<%= f.hidden_field :products_id, class: 'form-control', value:5 %>
+
 <div class="form-group">
 	<%= f.label :author %>
 	<%= f.text_field :author , class: 'form-control'%>

@@ -1,6 +1,6 @@
-class ProductsController < ApplicationController
+class PhonesController < ApplicationController
 	def index
-		@products=Product.all
+ 		@products=Product.all
 
 	end
 	def new
@@ -8,16 +8,9 @@ class ProductsController < ApplicationController
 	def show
 		#@review=Review.all
 		@product=Product.find(params[:id])
-		 case @product.id 
-			when 5
-				@review=TvReview.all
-			when 6
-				@review=PhoneReview.all
-			when 4
-				@review=WatchReview.all
-			end
-	end
+		@phone=PhoneReview.all
 
+	end
 	def create
 		#render plain: params[:product].inspect
 		@product=Product.new(product_params)
@@ -30,3 +23,4 @@ class ProductsController < ApplicationController
 	end
 end
  	
+end
