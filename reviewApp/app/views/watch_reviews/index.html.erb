@@ -1,4 +1,8 @@
 <div class="container">
+	<%=form_tag watch_reviews_path, method: :get do %>
+<%= text_field_tag :term, nil, placeholder: 'Search', class:'form-control' %>
+<%= submit_tag "Search", class:'btn btn-default' %>
+<% end %>	
 	<h2>Watch Reviews </h2>
 	
 	<table border="1" class="table">
@@ -9,7 +13,9 @@
 			
 			<th>Content</th>
 			
-			<th>Date</th>
+			<th>Date</th>		
+			<th>Edit</th>
+			<th>Delete</th>
 		</tr>
 		<% @watchreview.each do |watchreview| %>
 		<tr>

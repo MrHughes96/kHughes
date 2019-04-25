@@ -2,6 +2,11 @@ class WatchReviewsController < ApplicationController
 	before_action :authorize, :only => [ :create]
 	def index
 		@watchreview=WatchReview.all
+		@watchreview = if params[:term]
+							WatchReview.where('content like ?', "%#{params[:term]}")
+					else 
+						WatchReview.all
+					end
 	end
 	def new
 	end

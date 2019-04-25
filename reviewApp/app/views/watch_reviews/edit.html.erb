@@ -1,6 +1,8 @@
 <div class="container">
 <h1> Edit Watch Review </h1>
 <%= form_for @watchreview do |f| %>
+<%= f.hidden_field :products_id, class: 'form-control', value:12 %>
+<%=f.hidden_field :profile_id, class: 'form-control', value: current_profile.id %>
 <div class="form-group">
 	<%= f.label :author %>
 	<%= f.text_field :author ,class: 'form-control'%>

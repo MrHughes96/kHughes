@@ -2,6 +2,12 @@ class TvReviewsController < ApplicationController
 	before_action :authorize, :only => [ :create]
 	def index
 		@tvreview=TvReview.all
+		@profile=Profile.all
+		@tvreview = if params[:term]
+							TvReview.where('content like ?', "%#{params[:term]}")
+					else 
+						TvReview.all
+					end			
 	end
 	def new
 	end
@@ -33,9 +39,12 @@ class TvReviewsController < ApplicationController
 		@tvreview.destroy
 		redirect_to tv_reviews_path
 	end
+	def search
+
+	end
 	private
 	def tvreview_params
-		params.require(:tvreview).permit(:products_id,:profiles_id,:author,:rating,:content,:date)
+		params.require(:tvreview).permit(:products_id,:profile_id,:author,:rating,:content,:date)
 	end
 end
 

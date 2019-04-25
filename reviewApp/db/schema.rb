@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_22_181841) do
+ActiveRecord::Schema.define(version: 2019_04_23_172014) do
 
   create_table "phone_reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "author"
@@ -100,5 +100,6 @@ ActiveRecord::Schema.define(version: 2019_04_22_181841) do
 
   add_foreign_key "phone_reviews", "products", column: "products_id"
   add_foreign_key "tv_reviews", "products", column: "products_id"
+  add_foreign_key "tv_reviews", "profiles"
   add_foreign_key "watch_reviews", "products", column: "products_id"
 end

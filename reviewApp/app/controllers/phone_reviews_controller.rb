@@ -1,7 +1,12 @@
 class PhoneReviewsController < ApplicationController
 	before_action :authorize, :only => [ :create]
 	def index
-		@phonereview=PhoneReview.all
+		#@phonereview=PhoneReview.all
+		@phonereview = if params[:term]
+							PhoneReview.where('content like ?', "%#{params[:term]}")
+					else 
+						PhoneReview.all
+					end
 	end
 	def new
 	end
@@ -34,6 +39,8 @@ class PhoneReviewsController < ApplicationController
 		@phonereview=PhoneReview.find(params[:id])
 		@phonereview.destroy
 		redirect_to phone_reviews_path
+	end
+	def search
 	end
 	private
 	def phonereview_params

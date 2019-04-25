@@ -1,8 +1,13 @@
 <div class="container">
+<%=form_tag tv_reviews_path, method: :get do %>
+<%= text_field_tag :term, nil, placeholder: 'Search', class:'form-control' %>
+<%= submit_tag "Search", class:'btn btn-default' %>
+<% end %>		
 	<h2>TV Reviews </h2>
 	
 	<table border="1" class="table">
 		<tr>
+			
 			<th>Author</th>
 			
 			<th>Rating</th>
@@ -10,6 +15,8 @@
 			<th>Content</th>
 			
 			<th>Date</th>
+			<th>Edit</th>
+			<th>Delete</th>
 			
 			
 			
@@ -17,6 +24,7 @@
 		</tr>
 		<% @tvreview.each do |tvreview| %>
 		<tr>
+
 			<td><%=tvreview.author %></td>
 			<td><%=tvreview.rating %> </td>
 			<td><%=tvreview.content %> </td>

@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
-  resources :watch_reviews
-  resources :phone_reviews
+  resources :watch_reviews do
+    collection do
+      get :search
+    end
+  end
+  resources :phone_reviews do
+    collection do
+      get :search
+    end
+  end
   #resources :phonereviews
-  resources :tv_reviews
+  resources :tv_reviews do
+    collection do
+      get :search
+    end
+  end
   get 'sessions/index'
   #get 'sessions/new'
   resources :sessions
